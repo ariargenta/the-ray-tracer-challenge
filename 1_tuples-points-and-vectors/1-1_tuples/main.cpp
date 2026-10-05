@@ -13,7 +13,6 @@
  * And a is a point
  * And a is not a vector
  */
-
 struct Point {
     float x;
     float y;
@@ -58,14 +57,41 @@ std::vector<float>& make_vector(
  * Given p <- point(4, -4, 3)
  * Then p = tuple(4, -4, 3, 1)
  */
+void test_point() {
+    Point test_point = make_point(4, -4, 3);
+
+    assert(
+        test_point.x == 4.0
+        && test_point.y == -4.0
+        && test_point.z == 3.0
+        && test_point.w == 1.0
+    );
+
+    std::cout << "Test point passed" << std::endl;
+}
 
 /*
  * Scenario: `vector()` creates tuples with w = 0
  * Given v <- vector(4, -4, 3)
  * Then v = tuple(4, -4, 3, 0)
  */
+void test_vector() {
+    std::vector test_vector = make_vector(4.0, -4.0, 3.0, 0.0);
+
+    assert(
+        test_vector[0] == 4.0
+        && test_vector[1] == -4.0
+        && test_vector[2] == 3.0
+        && test_vector[3] == 0.0
+    );
+
+    std::cout << "Test vector passed" << std::endl;
+}
 
 int main(int argc, char* argv[]) {
+    test_point();
+    test_vector();
+
     float x = 4.3;
     float y = -4.2;
     float z = 3.1;

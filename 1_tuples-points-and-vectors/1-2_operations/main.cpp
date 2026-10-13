@@ -66,8 +66,31 @@ void test_vector_addition() {
     std::cout << "Test addition OK" << std::endl;
 }
 
+/*
+ * Scenario: Subtracting two points
+ * Given p1 <- point(3, 2, 1)
+ * And p2 <- point(5, 6, 7)
+ * Then p1 - p2 = vector(-2, -4, -6)
+ */
+void test_vector_substraction() {
+    vec4 p1 = {3.0, 2.0, 1.0, 1.0};
+    vec4 p2 = {5.0, 6.0, 7.0, 1.0};
+
+    vec4 test = p1 - p2;
+
+    assert(
+        test.x() == -2.0
+        && test.y() == -4.0
+        && test.z() == -6.0
+        && test.w() == 0.0
+    );
+
+    std::cout << "Test substraction OK" << std::endl;
+}
+
 int main(int argc, char* argv[]) {
     test_vector_addition();
+    test_vector_substraction();
 
     return EXIT_SUCCESS;
 }
